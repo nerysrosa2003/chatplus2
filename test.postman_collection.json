@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "3a447bf7-a36d-4a26-a42a-af178898f82e",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://chatplus1.herokuapp.com/doctor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"name\":\"luis2\",\n \"speciality\":\"spec21\",\n \"city\":\"miam2i\",\n \"state\":\"flori2da\",\n \"user\":\"pedro\"  \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://chatplus1.herokuapp.com/doctor",
+					"protocol": "https",
+					"host": [
+						"chatplus1",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"doctor"
+					]
+				},
+				"description": "test"
+			},
+			"response": []
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"username\":\"water\",\n \"password\":\"water\",\n \"phone\":\"3333333333\",\n \"email\":\"myemail.com\"\n \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://chatplus1.herokuapp.com/signup",
+					"protocol": "https",
+					"host": [
+						"chatplus1",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"signup"
+					]
+				},
+				"description": "test"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "luis",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "luis",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"username\":\"water\",\n \"password\":\"water\",\n \"phone\":\"3333333333\",\n \"email\":\"myemail.com\"\n \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://chatplus1.herokuapp.com/login",
+					"protocol": "https",
+					"host": [
+						"chatplus1",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				},
+				"description": "test"
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"username\":\"water\",\n \"password\":\"water\",\n \"phone\":\"3333333333\",\n \"email\":\"myemail.com\"\n \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://chatplus1.herokuapp.com/signup",
+					"protocol": "https",
+					"host": [
+						"chatplus1",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"signup"
+					]
+				},
+				"description": "test"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
