@@ -64,40 +64,38 @@ export default class SignInScreen extends Component {
             Alert.alert("Warning!", "Please input Password.");
             return;
         };
-        if(this.state.phone_number == "") {
-            Alert.alert("Warning!", "Please input Phone Number.");
-            return;
-        };
-        let regExpression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
-        if(regExpression.test(this.state.user_email) === false) {
-            Alert.alert("Warning!", 'Please use valid Email address.');
-            return;
-        };
-        
+       
         
         this.setState({showIndicator: true})
         await fetch(Global.base_url + 'login', {
             method: 'POST',
             headers: {
-                'Authorization': 'Basic ' + base64.encode(Global.auth_user_name + ":" + Global.auth_password),
+                // 'Authorization': 'Basic ' + base64.encode(Global.auth_user_name + ":" + Global.auth_password),
                 'Content-Type': 'application/json'
             },
             // body: JSON.stringify({
             //     "username": "water",
-            //     "password": "water",
+            //     "password": "wateffr",
             //     "phone": "3333333333",
             //     "email": "myemail.com"
             // })
             body: JSON.stringify({
                 "username": this.state.user_name,
-                "password": this.state.password,
-                "phone": this.state.phone_number,
-                "email": this.state.user_email
+                "password": this.state.password
             })
         })
         .then(response => response.json())
         .then(async responseData => {
-            console.log(responseData)
+            if(responseData.message) {
+                if(responseData.message == "Incorrect username") {
+                    Alert.alert("Warning!", "Incorrecet username. Please try again.");
+                    return;
+                }
+                if(responseData.message == "Incorrect password") {
+                    Alert.alert("Warning!", "Incorrecet password. Please try again.");
+                    return;
+                }
+            }
             
             // if(responseData.error == "Unauthorized") {
             //     Alert.alert('Warning!', "Username or Password is incorrect");
@@ -162,16 +160,6 @@ export default class SignInScreen extends Component {
                     <View style = {{width: '100%', height: '33%', justifyContent: 'center'}}>
                         <View style = {styles.input_view}>
                             <TextInput style = {styles.input_text} placeholder = {'Password'} secureTextEntry = {true} onChangeText = {(text) => this.setState({password: text})}></TextInput>
-                        </View>
-                    </View>
-                    <View style = {{width: '100%', height: '33%', justifyContent: 'center'}}>
-                        <View style = {styles.input_view}>
-                            <TextInput style = {styles.input_text} placeholder = {'Phone Number'} keyboardType = {'number-pad'} onChangeText = {(text) => this.setState({phone_number: text})}></TextInput>
-                        </View>
-                    </View>
-                    <View style = {{width: '100%', height: '33%', justifyContent: 'center'}}>
-                        <View style = {styles.input_view}>
-                            <TextInput style = {styles.input_text} placeholder = {'Email'} autoCapitalize={'none'} onChangeText = {(text) => this.setState({user_email: text})}></TextInput>
                         </View>
                     </View>
                     <View style = {{width: '100%', height: '33%', justifyContent: 'center', alignItems: 'flex-end'}}>
